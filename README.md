@@ -54,4 +54,4 @@ Run `mcp-cli` and specify the server you would like to use (run twice if it does
 `mcp-cli chat --server cli-mcp-server --provider ollama --model granite3.2:8b-instruct-q8_0`
 
 For filesystem example (run twice if it doesn't recognize the MCP server the first time):
-`mcp-cli chat --server cli-mcp-server --provider ollama --model granite3.2:8b-instruct-q8_0`
+`mcp-cli chat --server filesystem --provider ollama --model granite3.2:8b-instruct-q8_0`
