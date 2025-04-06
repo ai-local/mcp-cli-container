@@ -1,3 +1,5 @@
+Video walk through:  https://www.youtube.com/watch?v=OxX4NZO6j6I
+
 This is an example of how to run the https://github.com/chrishayuk/mcp-cli within a container for testing, using Podman.
 
 For use with an NVIDIA GPU with the NVIDIA container toolkit installed and configured for use with Podman.  
