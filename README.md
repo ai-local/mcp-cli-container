@@ -21,7 +21,7 @@ Within container, run the following to start ollama and download a model of your
 ```
 ollama serve >/dev/null 2>&1  &
 ollama list
-ollama pull granite3.2:8b-instruct-q8_0
+ollama pull qwen3:4b
 ```
 
 Within container, configure MCP server servers in the `server_config.json` file.  In this example, I'll configure MCP servers from https://github.com/MladenSU/cli-mcp-server and https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem
@@ -39,7 +39,8 @@ Note: these MCP servers are configured below to provide full access to the root 
         "ALLOWED_COMMANDS": "all",
         "ALLOWED_FLAGS": "all",
         "MAX_COMMAND_LENGTH": "1024",
-        "COMMAND_TIMEOUT": "30"
+        "COMMAND_TIMEOUT": "30",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
       }
     },
     "filesystem": {
@@ -53,7 +54,7 @@ Note: these MCP servers are configured below to provide full access to the root 
 ```
 
 Run `mcp-cli` and specify the server you would like to use (run twice if it doesn't recognize the MCP server the first time).  For cli-mcp-server example:
-`mcp-cli chat --server cli-mcp-server --provider ollama --model granite3.2:8b-instruct-q8_0`
+`mcp-cli chat --server cli-mcp-server --provider ollama --model qwen3:4b`
 
 For filesystem example (run twice if it doesn't recognize the MCP server the first time):
-`mcp-cli chat --server filesystem --provider ollama --model granite3.2:8b-instruct-q8_0`
+`mcp-cli chat --server filesystem --provider ollama --model qwen3:4b`
