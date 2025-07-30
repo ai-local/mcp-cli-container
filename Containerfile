@@ -7,9 +7,6 @@ RUN git clone https://github.com/chrishayuk/mcp-cli
 WORKDIR /mcp-cli
 RUN pip3.12 install -e ".[cli,dev]"
 
-# Fix issue when using MCP servers with ENV variables:  https://github.com/chrishayuk/mcp-cli/issues/8
-RUN sed -i 's/env=self.server.env or get_default_environment(),/env={**get_default_environment(), **(self.server.env or {})},/' /usr/local/lib/python3.12/site-packages/chuk_mcp/mcp_client/transport/stdio/stdio_client.py
-
 # Install ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
